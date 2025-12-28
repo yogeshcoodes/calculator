@@ -12,12 +12,10 @@ function playSound(audio) {
 }
 
 function press(value) {
-
   // ---- SOUND LOGIC ----
   if (value === "clear") {
     playSound(clearSound);
     display.value = "";
-
   } else if (value === "=") {
     playSound(enterSound);
     try {
@@ -25,11 +23,9 @@ function press(value) {
     } catch {
       display.value = "Error";
     }
-
   } else if (value === "delete") {
     playSound(clickSound);
     display.value = display.value.slice(0, -1);
-
   } else {
     playSound(clickSound);
     display.value += value;

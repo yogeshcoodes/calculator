@@ -7,6 +7,8 @@
   user-select: none;
   font-family: "Open Sans", sans-serif;
   -webkit-tap-highlight-color: transparent;
+  transition: all 0.2s;
+  /* outline: 2px solid green; */
 }
 
 /* ================= MOBILE TAP / FOCUS FIX ================= */
@@ -53,35 +55,42 @@ body.light {
 /* ================= BODY (FIXED) ================= */
 
 body {
-  min-height: 100vh; /* 🔧 height hata ke min-height */
   background: var(--bg);
   color: var(--fg);
-
-  display: flex;
-  justify-content: center;
-  align-items: flex-start; /* 🔧 center → top se start */
-
-  overflow-x: hidden; /* 🔧 horizontal scroll kill */
 }
 
 /* ================= MAIN WRAPPER ================= */
 
-.wrap {
+.megawrap {
   width: 100%;
-  max-width: 420px;
-  padding: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 4.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrap {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  display: flex;
+  gap: 4rem;
+  justify-content: center;
+  align-items: center;
+  max-width: 550px;
 }
 
 /* ================= TOP BAR (ABSOLUTE REMOVED) ================= */
 
 .top-bar {
-  display: flex; /* 🔧 absolute hata */
+  display: flex;
   justify-content: flex-end;
   align-items: center;
   gap: 0.5rem;
+  width: 100%;
+  margin-bottom: 4.5rem;
+  margin-top: 2rem;
+  margin-right: 3.5rem;
 }
 
 .theme-text {
@@ -131,6 +140,7 @@ input:checked + .slider::before {
 /* ================= CALCULATOR ================= */
 
 .calculator {
+  overflow: hidden;
   background: var(--bg);
   padding: 1.5rem;
   border-radius: 2rem;
@@ -209,5 +219,23 @@ button:nth-child(1) {
 @media (max-width: 480px) {
   .wrap {
     padding-bottom: 2rem; /* 🔧 bottom safe space */
+  }
+}
+
+@media (max-width: 992px) {
+  .wrap {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .wrap {
+    max-width: 470px;
+  }
+}
+
+@media (max-width: 576px) {
+  .wrap {
+    max-width: 415px;
   }
 }

@@ -1,7 +1,7 @@
 const display = document.getElementById("display");
 
 /* ================= CONFIG ================= */
-const CLICK_LOCK_TIME = 18; // ms
+const CLICK_LOCK_TIME = 0; // ms
 let clickLocked = false;
 
 /* ================= SOUNDS ================= */

@@ -238,4 +238,8 @@ button:nth-child(1) {
   .wrap {
     max-width: 415px;
   }
+  .top-bar {
+    margin-bottom: 3rem;
+  }
 }
+/* ================= END OF STYLE.CSS ================= */

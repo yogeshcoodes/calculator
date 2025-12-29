@@ -118,7 +118,7 @@ document.addEventListener("keydown", (e) => {
     "*": "*",
     "/": "/",
     ".": ".",
-    "%": "%"
+    "%": "%",
   };
 
   if (keyMap[e.key]) {

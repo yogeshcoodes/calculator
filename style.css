@@ -1,0 +1,213 @@
+/* ================= GLOBAL RESET ================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+  font-family: "Open Sans", sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ================= MOBILE TAP / FOCUS FIX ================= */
+
+button,
+input,
+textarea,
+select,
+a {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  touch-action: manipulation;
+}
+
+button:focus,
+input:focus,
+a:focus {
+  outline: none;
+}
+
+/* ================= THEME VARIABLES ================= */
+
+:root {
+  --bg: #1e1e1e;
+  --fg: #fff;
+  --btn: #2a2a2a;
+  --shadow-dark: #111;
+  --shadow-light: #333;
+  --highlight: #00cc99;
+  --danger: #ff4d4d;
+  --input-bg: #2e2e2e;
+}
+
+body.light {
+  --bg: #f0f0f0;
+  --fg: #111;
+  --btn: #e0e0e0;
+  --shadow-dark: #ccc;
+  --shadow-light: #fff;
+  --highlight: #00775f;
+  --danger: #e84141;
+  --input-bg: #fff;
+}
+
+/* ================= BODY (FIXED) ================= */
+
+body {
+  min-height: 100vh; /* 🔧 height hata ke min-height */
+  background: var(--bg);
+  color: var(--fg);
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* 🔧 center → top se start */
+
+  overflow-x: hidden; /* 🔧 horizontal scroll kill */
+}
+
+/* ================= MAIN WRAPPER ================= */
+
+.wrap {
+  width: 100%;
+  max-width: 420px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6.5rem;
+}
+
+/* ================= TOP BAR (ABSOLUTE REMOVED) ================= */
+
+.top-bar {
+  display: flex; /* 🔧 absolute hata */
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.theme-text {
+  font-size: 1.2rem;
+}
+
+/* ================= SWITCH ================= */
+
+.switch {
+  position: relative;
+  width: 50px;
+  height: 26px;
+}
+
+.switch input {
+  opacity: 0;
+}
+
+.slider {
+  position: absolute;
+  inset: 0;
+  background-color: #999;
+  border-radius: 50px;
+  transition: background 0.3s;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+input:checked + .slider {
+  background: var(--highlight);
+}
+
+input:checked + .slider::before {
+  transform: translateX(24px);
+}
+
+/* ================= CALCULATOR ================= */
+
+.calculator {
+  background: var(--bg);
+  padding: 1.5rem;
+  border-radius: 2rem;
+  width: 100%;
+
+  box-shadow: 10px 10px 25px var(--shadow-dark),
+    -10px -10px 25px var(--shadow-light);
+}
+
+/* ================= DISPLAY ================= */
+
+#display {
+  width: 100%;
+  height: 3.5rem;
+  border: none;
+  border-radius: 1rem;
+  background: var(--input-bg);
+  color: var(--fg);
+
+  font-size: 2rem;
+  text-align: right;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+
+  box-shadow: inset 3px 3px 8px var(--shadow-dark),
+    inset -3px -3px 8px var(--shadow-light);
+}
+
+/* ================= BUTTON GRID ================= */
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+/* ================= BUTTONS ================= */
+
+button {
+  padding: 1.2rem;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 1rem;
+  background: var(--btn);
+  color: var(--fg);
+  cursor: pointer;
+
+  box-shadow: 4px 4px 8px var(--shadow-dark), -4px -4px 8px var(--shadow-light);
+
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.2s ease;
+}
+
+button:active {
+  transform: scale(0.95);
+  box-shadow: inset 2px 2px 6px var(--shadow-dark),
+    inset -2px -2px 6px var(--shadow-light);
+}
+
+/* ================= SPECIAL BUTTONS ================= */
+
+button.equal {
+  background: var(--highlight);
+  color: #fff;
+}
+
+button.zero {
+  grid-column: span 2;
+}
+
+button:nth-child(1) {
+  background: var(--danger);
+}
+
+/* ================= MOBILE SAFETY ================= */
+
+@media (max-width: 480px) {
+  .wrap {
+    padding-bottom: 2rem; /* 🔧 bottom safe space */
+  }
+}
